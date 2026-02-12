@@ -124,7 +124,29 @@
   - Pin bearing pressure (compression): **349 MPa** (>60 MPa ❌) – pin boss too narrow.
   - Constraints satisfied: mass only.
   - **Implication:** To handle 25 MPa peak pressure and 180 kN force, piston needs thicker crown (>10 mm) and wider pin boss (>15 mm). Optimization prioritized mass minimization over stress constraints.
-- **Next:** Expand crown thickness bounds (6‑20 mm), pin boss width bounds (8‑25 mm), and re‑optimize.
+
+- **Relaxed‑constraint optimization** (18:03 SGT, crown stress <248 MPa, pin bearing <80 MPa, expanded bounds):
+  - Mass: **285 g** (<500 g target ✅)
+  - Crown bending stress: **630 MPa** (>248 MPa limit ❌) – still too high.
+  - Pin bearing pressure: **313 MPa** (>80 MPa ❌) – still too high.
+  - Constraints satisfied: mass only.
+  - **Interpretation:** Even with relaxed stress limits and expanded geometry bounds, the piston cannot satisfy stress and bearing constraints while staying under 500 g. Likely need either:
+    1. **Higher‑strength material** (forged steel, yield ~800 MPa, allowing crown stress ~640 MPa)
+    2. **Increased crown thickness** beyond 20 mm (requires larger compression height)
+    3. **Increased pin boss width** beyond 25 mm (limited by piston diameter)
+    4. **Additive‑manufactured lattice infill** to reduce mass while maintaining stiffness.
+
+- **Next steps:** Explore additive‑manufacturing‑enabled generative design (lattice/hollow sections) or switch to forged steel material.
+
+## Connecting Rod Relaxed Constraints (2026‑02‑12 18:05 SGT)
+- **Relaxed‑constraint optimization** (mass <1.5 kg, bearing pressure <120 MPa, buckling SF ≥1.5, fatigue SF ≥1.5, stress limit 0.6×yield) **did not produce feasible designs**.
+- **Interpretation:** At 11 kRPM with 180 kN compression + 83 kN tensile inertia, even relaxed constraints appear insufficient for a titanium rod under 1.5 kg.
+- **Potential solutions:**
+  1. **Additive manufacturing (lattice/hollow sections)** to reduce mass while maintaining buckling strength.
+  2. **Further relax constraints** (mass up to 2 kg, bearing pressure up to 200 MPa, buckling SF ≥1.2).
+  3. **Increase geometry bounds** beyond current limits (beam height up to 150 mm, small‑end width up to 150 mm).
+  4. **Switch to higher‑strength material** (300M steel, yield 1800 MPa, density 7.8 g/cm³).
+- **Next:** Run additive‑manufacturing‑aware generative design with lattice variables.
 
 ## CAD Generation Progress (2026‑02‑12 17:20 SGT)
 - **Connecting rod CAD** generated from optimized design (mass 1.42 kg, constraints partially satisfied). File: `conrod_test.step`.
