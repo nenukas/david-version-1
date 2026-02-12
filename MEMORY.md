@@ -66,7 +66,14 @@
   - Compressive stress: 344 MPa (<440 MPa ✅)
   - Bearing pressure (small end): 311 MPa (>60 MPa ❌) – needs larger small‑end width/diameter.
   - Fatigue safety factor: 1.92 (<2 ❌) – close.
-- **Next:** Adjust bounds, re‑optimize, generate CAD.
+- **Second iteration** (variable small‑end diameter added, 20‑population × 15‑generations):
+  - Mass: **1.31 kg** (target <1 kg)
+  - Buckling safety factor: 1.66 (≥2 ❌) – insufficient.
+  - Compressive stress: 433 MPa (<440 MPa ✅)
+  - Bearing pressure (small end): 233 MPa (>60 MPa ❌) – improved but still high.
+  - Fatigue safety factor: 1.53 (<2 ❌).
+  - Small‑end diameter increased to 30.9 mm (from fixed 28 mm).
+- **Next:** Further adjust bounds (increase big‑end width, beam height), re‑optimize, generate CAD.
 
 ## Technical Stack
 **Generative Design & Optimization:**
@@ -89,13 +96,19 @@
 - `Gradio` (web dashboards)
 - OpenClaw integration (real‑time chat control)
 
+## CAD Generation Progress (2026‑02‑12 17:20 SGT)
+- **Connecting rod CAD** generated from optimized design (mass 1.42 kg, constraints partially satisfied). File: `conrod_test.step`.
+- **Piston CAD** generated from baseline geometry (bore 94.5 mm, forged aluminum). File: `piston_baseline.step`.
+- **Crankshaft CAD** already available (`crankshaft_optimized.step`).
+- **FEA validation paused** due to Calculix output parsing issues; proceeding with generative design of remaining components.
+
 ## Milestones
 - [x] Environment setup (Python env, CAD tools, simulation solvers)
 - [x] Conceptual design: target specifications & constraints
 - [x] Generative design of first component (crankshaft)
-- [ ] FEA validation of crankshaft (Calculix integration)
-- [ ] Generative design of connecting rod
-- [ ] Generative design of piston
+- [~] FEA validation of crankshaft (Calculix integration) – paused
+- [~] Generative design of connecting rod – CAD generated, optimization ongoing
+- [~] Generative design of piston – CAD generated, optimization pending
 - [ ] Generative design of cylinder block
 - [ ] Assembly of full engine CAD
 - [ ] Multibody dynamics simulation (lap time prediction)
