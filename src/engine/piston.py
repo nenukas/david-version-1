@@ -85,16 +85,22 @@ class PistonAnalyzer:
         return peak_force_n / area
     
     def evaluate_constraints(self, peak_pressure_mpa: float,
-                            peak_force_n: float) -> Tuple[Dict[str, bool], Dict[str, float]]:
+                            peak_force_n: float,
+                            tensile_force_n: float = None) -> Tuple[Dict[str, bool], Dict[str, float]]:
         """Evaluate design constraints and return metrics."""
+        if tensile_force_n is None:
+            tensile_force_n = peak_force_n  # default to same as compression
         metrics = {}
         metrics["mass_g"] = self.mass()
         metrics["crown_bending_mpa"] = self.crown_bending_stress(peak_pressure_mpa)
-        metrics["pin_bearing_mpa"] = self.pin_bearing_pressure(peak_force_n)
+        metrics["pin_bearing_comp_mpa"] = self.pin_bearing_pressure(peak_force_n)
+        metrics["pin_bearing_tens_mpa"] = self.pin_bearing_pressure(tensile_force_n)
+        metrics["pin_bearing_max_mpa"] = max(metrics["pin_bearing_comp_mpa"], metrics["pin_bearing_tens_mpa"])
         
         constraints = {}
         constraints["crown_stress_ok"] = metrics["crown_bending_mpa"] < self.geo.yield_strength * 0.67
-        constraints["pin_bearing_ok"] = metrics["pin_bearing_mpa"] < 60.0  # typical limit for aluminum
+        constraints["pin_bearing_comp_ok"] = metrics["pin_bearing_comp_mpa"] < 60.0  # typical limit for aluminum
+        constraints["pin_bearing_tens_ok"] = metrics["pin_bearing_tens_mpa"] < 60.0
         constraints["mass_ok"] = metrics["mass_g"] < 500.0  # target <500g
         
         return constraints, metrics
