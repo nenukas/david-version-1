@@ -68,7 +68,9 @@ class CrankshaftAnalyzer:
             d = self.geo.main_journal_diameter
             fillet = self.geo.fillet_main
         # Stress concentration factor (approximate for shoulder fillet)
-        kt = 1 + 0.5 * np.sqrt(fillet / (d/2))
+        # Guard against division by zero or negative values
+        ratio = fillet / max(0.001, d/2)
+        kt = 1 + 0.5 * np.sqrt(max(0.001, ratio))
         bending_moment = force_n * self.geo.stroke  # N·mm
         i = np.pi * d**4 / 64  # area moment of inertia
         sigma_nominal = bending_moment * (d/2) / i

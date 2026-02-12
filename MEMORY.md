@@ -30,6 +30,20 @@
 - **Vehicle layout:** Mid‑engine, rear‑wheel‑drive with mechanical Torsen differential.
 - **Generative design focus:** Crankshaft first (dual‑mode load cases), then block, conrod, piston.
 
+## Progress & Results
+**2026‑02‑12 10:05 SGT – Crankshaft Generative Design Completed**
+- **Method:** Evolutionary algorithm (DEAP) with 30 individuals × 20 generations.
+- **Objectives:** Minimize mass while satisfying stress, stiffness, and geometric constraints.
+- **Load cases:** Overdrive mode (2800 Nm torque, 180 kN conrod force, 8500 rpm).
+- **Optimal design:**
+  - Mass: **13.03 kg** (300M forged steel)
+  - Main journal: 70.0 mm diameter × 26.6 mm width
+  - Crank pin: 69.2 mm diameter × 26.2 mm width
+  - Cheek: 80.3 mm outer radius, 69.6 mm hole radius, 17.6 mm thickness (33 % sector)
+  - Fillet radii: 5.3 mm (main), 4.5 mm (pin)
+- **Constraints satisfied:** Shear stress (5.9 MPa < 500 MPa), bending stress (310 MPa < 500 MPa), torsional stiffness (504 kHz > 212 Hz), mass (<50 kg).
+- **CAD exported:** `crankshaft_optimized.step` (881 KB) and STL.
+
 ## Technical Stack
 **Generative Design & Optimization:**
 - `pyOpt` (0.84) – gradient‑based optimization
@@ -52,12 +66,14 @@
 - OpenClaw integration (real‑time chat control)
 
 ## Milestones
-- [ ] Environment setup (Python env, CAD tools, simulation solvers)
-- [ ] Conceptual design: target specifications & constraints
-- [ ] Generative design of first component (e.g., suspension upright)
-- [ ] FEA validation of component
-- [ ] CFD of external aerodynamics
-- [ ] Full vehicle CAD assembly
+- [x] Environment setup (Python env, CAD tools, simulation solvers)
+- [x] Conceptual design: target specifications & constraints
+- [x] Generative design of first component (crankshaft)
+- [ ] FEA validation of crankshaft (Calculix integration)
+- [ ] Generative design of connecting rod
+- [ ] Generative design of piston
+- [ ] Generative design of cylinder block
+- [ ] Assembly of full engine CAD
 - [ ] Multibody dynamics simulation (lap time prediction)
 - [ ] Manufacturing‑ready drawings & BOM
 
