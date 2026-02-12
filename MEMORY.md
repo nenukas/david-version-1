@@ -55,6 +55,19 @@
   - Fillet radii: 4.3 mm (main), 5.2 mm (pin)
 - **All constraints satisfied**, geometric feasibility validated, CAD exported.
 
+**2026‑02‑12 16:45 SGT – Connecting‑Rod Generative Design Started**
+- **Material:** Ti‑6Al‑4V titanium (density 4.43 g/cm³, yield 880 MPa).
+- **Load cases:** Overdrive compression 180 kN, tensile 50 kN, eccentricity 0.5 mm.
+- **Analytical model:** Euler‑Johnson buckling, fatigue (Goodman), bearing pressure, I‑beam cross‑section.
+- **Optimization pipeline:** DEAP evolutionary algorithm with 8 design variables (beam dimensions, bearing widths, fillets).
+- **Initial result** (20‑population × 15‑generations):
+  - Mass: **1.32 kg** (target <1 kg)
+  - Buckling safety factor: 2.12 (≥2 ✅)
+  - Compressive stress: 344 MPa (<440 MPa ✅)
+  - Bearing pressure (small end): 311 MPa (>60 MPa ❌) – needs larger small‑end width/diameter.
+  - Fatigue safety factor: 1.92 (<2 ❌) – close.
+- **Next:** Adjust bounds, re‑optimize, generate CAD.
+
 ## Technical Stack
 **Generative Design & Optimization:**
 - `pyOpt` (0.84) – gradient‑based optimization
