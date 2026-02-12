@@ -55,27 +55,65 @@ def create_geometry_from_vector(vec):
         fatigue_limit=MATERIAL_FATIGUE_LIMIT,
     )
 
+def geometric_feasibility(geo):
+    """Check geometry for physical manufacturability, return violation count."""
+    violations = 0
+    # 1. Cheek hole must be smaller than cheek radius with minimum wall thickness
+    min_wall = 5.0  # mm
+    if geo.cheek_hole_radius >= geo.cheek_radius - min_wall:
+        violations += 10
+    # 2. Fillet radii positive and not too small relative to diameter
+    if geo.fillet_main <= 1.0 or geo.fillet_pin <= 1.0:
+        violations += 5
+    # 3. Minimum cheek thickness (avoid paper‑thin)
+    if geo.cheek_thickness < 5.0:
+        violations += 5
+    # 4. Aspect ratios (avoid extreme geometries)
+    # Cheek thickness / radius > 0.1 (avoid too thin disks)
+    if geo.cheek_thickness / geo.cheek_radius < 0.1:
+        violations += 3
+    # Pin width / diameter > 0.3 (avoid too slender)
+    if geo.pin_width / geo.pin_diameter < 0.3:
+        violations += 3
+    # Main journal width / diameter > 0.3
+    if geo.main_journal_width / geo.main_journal_diameter < 0.3:
+        violations += 3
+    # 5. Ensure positive volumes (analytical)
+    # Volume of main journal
+    vol_main = np.pi * (geo.main_journal_diameter/2)**2 * geo.main_journal_width
+    if vol_main <= 0:
+        violations += 20
+    # Volume of pin
+    vol_pin = np.pi * (geo.pin_diameter/2)**2 * geo.pin_width
+    if vol_pin <= 0:
+        violations += 20
+    # Volume of cheek (annular sector)
+    cheek_area = geo.cheek_sector_factor * np.pi * (geo.cheek_radius**2 - geo.cheek_hole_radius**2)
+    vol_cheek = cheek_area * geo.cheek_thickness
+    if vol_cheek <= 0:
+        violations += 20
+    
+    return violations
+
 def evaluate_individual(vec):
     """Evaluate one design candidate. Returns (mass, constraint_violations)."""
-    # Geometric feasibility checks
+    # 1. Bounds checking
     violations = 0
-    # 1. Cheek hole must be smaller than cheek radius (with margin)
-    if vec[6] >= vec[5] - 5.0:
-        violations += 10  # large penalty
-    # 2. Fillet radii positive
-    if vec[7] <= 0.1 or vec[8] <= 0.1:
-        violations += 10
-    # 3. Check bounds (should be satisfied by mutation, but guard)
     for i, (low, high) in enumerate(zip(LOWS, HIGHS)):
         if vec[i] < low or vec[i] > high:
             violations += 5
     
-    # If severe geometric violations, return high mass and violation count
+    # If bounds violated, return high penalty
     if violations > 0:
         return 1e6, violations
     
-    # Create geometry and analyze
+    # 2. Create geometry and check geometric feasibility
     geo = create_geometry_from_vector(vec)
+    geom_violations = geometric_feasibility(geo)
+    if geom_violations > 0:
+        return 1e6, geom_violations
+    
+    # 3. Engineering analysis
     analyzer = CrankshaftAnalyzer(geo)
     cons, metrics = analyzer.evaluate_constraints(
         max_torque_nm=PEAK_TORQUE,
@@ -169,8 +207,42 @@ if __name__ == "__main__":
     for k, v in cons.items():
         print(f"  {k}: {v}")
     
-    # Export CAD of best design
-    from src.cad.crankshaft_cad import create_crankshaft, export_step
-    crankshaft = create_crankshaft(geo)
-    export_step(crankshaft, "crankshaft_optimized.step")
-    print("\nOptimized CAD exported to 'crankshaft_optimized.step'")
+    # CAD validation & export
+    try:
+        from src.cad.crankshaft_cad import create_crankshaft, export_step
+        crankshaft = create_crankshaft(geo)
+        
+        # Check volume > 0
+        cad_volume = crankshaft.volume()  # mm³
+        if cad_volume <= 0:
+            print("⚠️  CAD volume is zero or negative – geometry may be degenerate.")
+        else:
+            # Compare analytical mass vs CAD volume‑based mass
+            cad_mass = cad_volume * geo.density / 1000  # kg
+            anal_mass = metrics["mass_kg"]
+            mass_diff_pct = abs(cad_mass - anal_mass) / anal_mass * 100
+            print(f"CAD volume: {cad_volume:.0f} mm³ → mass: {cad_mass:.2f} kg")
+            print(f"Analytical mass: {anal_mass:.2f} kg (difference: {mass_diff_pct:.1f}%)")
+            if mass_diff_pct > 10:
+                print("⚠️  Large mass discrepancy – analytical model may be inaccurate.")
+        
+        # Check if single solid (connected)
+        solids = crankshaft.solids()
+        if solids.size() != 1:
+            print(f"⚠️  CAD contains {solids.size()} separate solids – may be disconnected.")
+        else:
+            print("✅ CAD is a single connected solid.")
+        
+        # Export
+        export_step(crankshaft, "crankshaft_optimized.step")
+        print("✅ Optimized CAD exported to 'crankshaft_optimized.step'")
+        
+        # Also export STL for quick viewing
+        import cadquery as cq
+        cq.exporters.export(crankshaft, "crankshaft_optimized.stl", "STL")
+        print("✅ STL exported as 'crankshaft_optimized.stl'")
+        
+    except Exception as e:
+        print(f"❌ CAD validation/export failed: {e}")
+        import traceback
+        traceback.print_exc()

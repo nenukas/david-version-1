@@ -44,6 +44,17 @@
 - **Constraints satisfied:** Shear stress (5.9 MPa < 500 MPa), bending stress (310 MPa < 500 MPa), torsional stiffness (504 kHz > 212 Hz), mass (<50 kg).
 - **CAD exported:** `crankshaft_optimized.step` (881 KB) and STL.
 
+**2026‑02‑12 11:51 SGT – Enhanced Geometric Feasibility Checks**
+- **Added checks:** Minimum wall thickness (5 mm), aspect ratios (cheek thickness/radius > 0.1, pin width/diameter > 0.3, journal width/diameter > 0.3), positive fillet radii (>1 mm), positive volumes for all components.
+- **CAD validation:** Volume > 0, single‑solid check, mass comparison between analytical and CAD.
+- **Re‑optimization result** (with enhanced checks):
+  - Mass: **26.43 kg** (stricter geometric constraints)
+  - Main journal: 80.2 mm diameter × 28.8 mm width
+  - Crank pin: 86.5 mm diameter × 35.6 mm width
+  - Cheek: 80.8 mm outer radius, 38.0 mm hole radius, 17.3 mm thickness
+  - Fillet radii: 4.3 mm (main), 5.2 mm (pin)
+- **All constraints satisfied**, geometric feasibility validated, CAD exported.
+
 ## Technical Stack
 **Generative Design & Optimization:**
 - `pyOpt` (0.84) – gradient‑based optimization
