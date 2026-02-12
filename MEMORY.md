@@ -161,8 +161,25 @@
 - **Connecting rod:** mass <2 kg, bearing pressure <200 MPa, buckling SF ≥1.2, fatigue SF ≥1.2, stress limit 0.6×yield_eff.
 - **Piston:** mass <800 g, crown stress <0.8×yield_eff, pin bearing pressure <100 MPa.
 
-### Next Step
-Run both AM‑aware optimizations (launch sub‑agents).
+### AM‑Aware Optimization Results (2026‑02‑12 18:26 SGT)
+- **Connecting rod (300M steel + lattice infill):** No feasible designs (0/40 population). Best design mass **54 g**, but critical violations:
+  - Buckling safety factor: **0.102** (needs ≥1.2)
+  - Fatigue safety factor: **0.158** (needs ≥1.2)
+  - Compressive stress: **854 MPa** > 0.6×yield_eff (≈102 MPa)
+- **Piston (forged steel + lattice infill):** No feasible designs (0/30 population). Best design mass **156 g**, violations:
+  - Crown bending stress: **648 MPa** > 0.8×yield_eff (≈59 MPa at ρ=0.2)
+  - Pin bearing pressure: **318 MPa** > 100 MPa limit
+
+**Interpretation:** Even with high‑strength steels and lattice infill, the 11 kRPM loads (180 kN compression + 83 kN tensile) are too severe for the current constraint thresholds.
+
+### Options to Proceed
+1. **Further relax constraints** – e.g., buckling SF ≥0.8, bearing pressure ≤250 MPa, crown stress ≤0.9×yield, fatigue SF ≥0.8.
+2. **Increase lattice density lower bound** to 0.5–1.0 (sacrifice mass reduction for strength).
+3. **Expand geometry bounds** – pin‑boss width up to 40 mm, beam height up to 200 mm, small‑end width up to 200 mm.
+4. **Accept infeasible designs** – proceed with CAD of best‑infeasible geometries, note violations.
+5. **Adjust loads** – reduce peak pressure (e.g., 200 bar → 144 kN) or RPM (e.g., 9000 RPM → 61 kN tensile).
+
+**Next:** Await user direction on which adjustment(s) to implement.
 
 ## CAD Generation Progress (2026‑02‑12 17:20 SGT)
 - **Connecting rod CAD** generated from optimized design (mass 1.42 kg, constraints partially satisfied). File: `conrod_test.step`.
@@ -175,8 +192,8 @@ Run both AM‑aware optimizations (launch sub‑agents).
 - [x] Conceptual design: target specifications & constraints
 - [x] Generative design of first component (crankshaft)
 - [~] FEA validation of crankshaft (Calculix integration) – paused
-- [~] Generative design of connecting rod – CAD generated, AM‑aware optimization launched (300M steel + lattice infill)
-- [~] Generative design of piston – CAD generated, AM‑aware optimization launched (forged steel + lattice infill)
+- [~] Generative design of connecting rod – CAD generated, AM‑aware optimization completed (no feasible design)
+- [~] Generative design of piston – CAD generated, AM‑aware optimization completed (no feasible design)
 - [ ] Generative design of cylinder block
 - [ ] Assembly of full engine CAD
 - [ ] Multibody dynamics simulation (lap time prediction)
