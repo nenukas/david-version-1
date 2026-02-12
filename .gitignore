@@ -1,0 +1,68 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+svelte/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Simulation outputs
+*.cae
+*.dat
+*.inp
+*.odb
+*.vtk
+*.vtu
+*.msh
+*.log
+*.err
+
+# CAD temporary files
+*.fcstd
+*.FCStd
+*.blend1
+*.blend2
+
+# Config secrets
+config/keys.json
+config/*.key
+
+# Large files
+*.stl
+*.step
+*.STEP
+*.stp
+*.igs
+*.iges
+
+# OS
+.DS_Store
+Thumbs.db
