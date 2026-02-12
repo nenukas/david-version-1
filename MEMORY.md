@@ -105,6 +105,15 @@
 - `Gradio` (web dashboards)
 - OpenClaw integration (real‑time chat control)
 
+## Piston Generative Design Progress (2026‑02‑12 17:47 SGT)
+- **First optimization** (20‑population × 15‑generations, 11 kRPM loads):
+  - Mass: **229 g** (<500 g target ✅)
+  - Crown bending stress: **1113 MPa** (>208 MPa limit ❌) – crown too thin.
+  - Pin bearing pressure (compression): **349 MPa** (>60 MPa ❌) – pin boss too narrow.
+  - Constraints satisfied: mass only.
+  - **Implication:** To handle 25 MPa peak pressure and 180 kN force, piston needs thicker crown (>10 mm) and wider pin boss (>15 mm). Optimization prioritized mass minimization over stress constraints.
+- **Next:** Expand crown thickness bounds (6‑20 mm), pin boss width bounds (8‑25 mm), and re‑optimize.
+
 ## CAD Generation Progress (2026‑02‑12 17:20 SGT)
 - **Connecting rod CAD** generated from optimized design (mass 1.42 kg, constraints partially satisfied). File: `conrod_test.step`.
 - **Piston CAD** generated from baseline geometry (bore 94.5 mm, forged aluminum). File: `piston_baseline.step`.
@@ -116,8 +125,8 @@
 - [x] Conceptual design: target specifications & constraints
 - [x] Generative design of first component (crankshaft)
 - [~] FEA validation of crankshaft (Calculix integration) – paused
-- [~] Generative design of connecting rod – CAD generated, optimization ongoing
-- [~] Generative design of piston – CAD generated, optimization pending
+- [~] Generative design of connecting rod – CAD generated, optimization ongoing (no feasible design found at 11 kRPM)
+- [~] Generative design of piston – CAD generated, optimization completed (constraints not satisfied)
 - [ ] Generative design of cylinder block
 - [ ] Assembly of full engine CAD
 - [ ] Multibody dynamics simulation (lap time prediction)
