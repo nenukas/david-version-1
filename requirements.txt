@@ -1,0 +1,32 @@
+# Core scientific computing
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+matplotlib>=3.7
+
+# Optimization & generative design
+pyOpt>=1.2
+openmdao>=3.28
+deap>=1.4
+
+# CAD automation
+freecad>=0.21  # Install via system package manager
+openscad
+
+# Simulation interfaces (optional)
+python-occ>=7.7
+pycalculix>=0.9
+openfoam  # Install via system package manager
+
+# Visualization & dashboards
+plotly>=5.18
+dash>=2.14
+gradio>=4.0
+
+# Machine learning for surrogate models
+torch>=2.0
+scikit-learn>=1.3
+
+# Utilities
+pyyaml>=6.0
+tqdm>=4.65
