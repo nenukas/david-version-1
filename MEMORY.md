@@ -181,12 +181,31 @@
 4. **Accept infeasible designs** – proceed with CAD of best‑infeasible geometries, note violations.
 5. **Adjust loads** – reduce peak pressure (e.g., 200 bar → 144 kN) or RPM (e.g., 9000 RPM → 61 kN tensile).
 
-**Next:** Await user direction on which adjustment(s) to implement.
+**User direction (2026‑02‑12 19:03 SGT):** “Expand geometry and try iterating from best seed.”
 
-## CAD Generation Progress (2026‑02‑12 17:20 SGT)
-- **Connecting rod CAD** generated from optimized design (mass 1.42 kg, constraints partially satisfied). File: `conrod_test.step`.
-- **Piston CAD** generated from baseline geometry (bore 94.5 mm, forged aluminum). File: `piston_baseline.step`.
-- **Crankshaft CAD** already available (`crankshaft_optimized.step`).
+### Updated Optimization Runs
+- **Connecting rod v2 (expanded geometry bounds, lattice density lower bound 0.5):** ✅ **Feasible design found!**
+  - Mass: **0.280 kg** (well under 2 kg limit)
+  - Buckling safety factor: **1.63** (≥1.2)
+  - Bearing pressure: big end 17.8 MPa, small end 30.1 MPa (<200 MPa)
+  - Fatigue safety factor: **1.34** (≥1.2)
+  - Compressive stress: **412.6 MPa** (<0.6×yield_eff)
+  - Lattice relative density: **0.531** (within 0.5–1.0)
+  - Geometry within expanded bounds (beam height 56.3 mm, beam width 45.7 mm, web thickness 3.3 mm, flange thickness 3.1 mm, big‑end width 116.7 mm, small‑end width 140.1 mm).
+  - **CAD generated:** `conrod_opt_am_v2_results_20260212_184007.step` (STEP) and STL.
+
+- **Piston v3 (further expanded geometry bounds, seed 2):** 🔄 **Running**
+  - Expanded bounds: crown thickness 8–30 mm, pin‑boss width 10–50 mm, skirt length 30–100 mm, skirt thickness 2–12 mm, lattice density 0.5–1.0.
+  - Population 30, generations 20, random seed 2 (best seed from previous runs).
+  - Expected to find feasible designs given pin‑boss width up to 50 mm (≥32 mm required) and crown thickness up to 30 mm (≥13.6 mm required at ρ=0.5).
+  - Results pending (sub‑agent launched).
+
+## CAD Generation Progress (2026‑02‑12 19:10 SGT)
+- **Crankshaft CAD** – `crankshaft_optimized.step` (generative design, mass 26.43 kg, all constraints satisfied).
+- **Connecting rod CAD (AM‑aware)** – `conrod_opt_am_v2_results_20260212_184007.step` (feasible design, mass 0.28 kg, all constraints satisfied).
+- **Connecting rod CAD (baseline)** – `conrod_test.step` (previous infeasible design).
+- **Piston CAD (baseline)** – `piston_baseline.step` (forged aluminum baseline).
+- **Piston CAD (AM‑aware)** – pending v3 optimization results.
 - **FEA validation paused** due to Calculix output parsing issues; proceeding with generative design of remaining components.
 
 ## Milestones
@@ -194,8 +213,8 @@
 - [x] Conceptual design: target specifications & constraints
 - [x] Generative design of first component (crankshaft)
 - [~] FEA validation of crankshaft (Calculix integration) – paused
-- [~] Generative design of connecting rod – CAD generated, AM‑aware optimization completed (no feasible design)
-- [~] Generative design of piston – CAD generated, AM‑aware optimization completed (no feasible design)
+- [x] Generative design of connecting rod – **feasible AM‑aware design found, CAD generated**
+- [~] Generative design of piston – AM‑aware optimization v3 running (expanded bounds, seed 2)
 - [ ] Generative design of cylinder block
 - [ ] Assembly of full engine CAD
 - [ ] Multibody dynamics simulation (lap time prediction)
