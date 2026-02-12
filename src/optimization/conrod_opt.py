@@ -19,14 +19,15 @@ ECCENTRICITY = 0.5            # mm (manufacturing misalignment)
 
 # Design variable bounds (mm)
 BOUNDS = {
-    "beam_height": (30.0, 60.0),
-    "beam_width": (20.0, 50.0),
-    "web_thickness": (4.0, 15.0),
-    "flange_thickness": (3.0, 10.0),
-    "big_end_width": (30.0, 50.0),   # must match crankshaft pin width
-    "small_end_width": (20.0, 40.0),
-    "fillet_big": (2.0, 8.0),
-    "fillet_small": (1.0, 6.0),
+    "beam_height": (30.0, 80.0),
+    "beam_width": (20.0, 60.0),
+    "web_thickness": (4.0, 20.0),
+    "flange_thickness": (3.0, 15.0),
+    "big_end_width": (30.0, 80.0),   # must match crankshaft pin width
+    "small_end_width": (20.0, 80.0),
+    "small_end_diameter": (30.0, 60.0),  # piston pin diameter
+    "fillet_big": (2.0, 12.0),
+    "fillet_small": (1.0, 10.0),
 }
 
 LOWS = [b[0] for b in BOUNDS.values()]
@@ -43,9 +44,9 @@ def create_geometry_from_vector(vec):
         big_end_width=vec[4],
         small_end_width=vec[5],
         big_end_diameter=CRANK_PIN_DIAMETER,
-        small_end_diameter=PISTON_PIN_DIAMETER,
-        fillet_big=vec[6],
-        fillet_small=vec[7],
+        small_end_diameter=vec[6],  # variable
+        fillet_big=vec[7],
+        fillet_small=vec[8],
         # Material fixed (Ti‑6Al‑4V)
     )
 
@@ -122,7 +123,7 @@ def setup_deap():
         creator.Individual,
         (toolbox.attr_0, toolbox.attr_1, toolbox.attr_2,
          toolbox.attr_3, toolbox.attr_4, toolbox.attr_5,
-         toolbox.attr_6, toolbox.attr_7),
+         toolbox.attr_6, toolbox.attr_7, toolbox.attr_8),
         n=1
     )
     toolbox.register("population", tools.initRepeat, list, toolbox.individual)

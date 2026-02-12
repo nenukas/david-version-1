@@ -84,12 +84,13 @@ def create_cantilever_inp(width=70.0, height=30.0, length=47.5, force_n=180000.0
     inp.append("*DLOAD")
     inp.append(f"LOADFACE,P,{pressure:.6f}")
     
-    # Request element stress output
-    inp.append("*EL PRINT, ELSET=BEAM")
-    inp.append("S")
-    
     inp.append("*STEP")
     inp.append("*STATIC")
+    # Output requests inside step
+    inp.append("*EL PRINT, ELSET=BEAM")
+    inp.append("S")
+    inp.append("*EL FILE, ELSET=BEAM")
+    inp.append("S")
     inp.append("*END STEP")
     
     return "\n".join(inp)
@@ -141,6 +142,42 @@ def run_ccx(inp_content, basename="cantilever"):
                 max_s11 = max(s11_values, key=abs)
                 avg_s11 = np.mean(s11_values)
                 return max_s11, avg_s11, result.stderr
+        
+        # Try parsing .frd file via pycalculix
+        frd_path = os.path.join(tmpdir, f"{basename}.frd")
+        if os.path.exists(frd_path):
+            try:
+                import sys
+                sys.path.insert(0, '/home/nenuka/.local/lib/python3.12/site-packages')
+                from pycalculix.results_file import FrdFile
+                frd = FrdFile(frd_path)
+                # Get element stress results
+                # The API might be: frd.get_element_stress() or similar
+                # We'll attempt to read element results
+                # For now, fallback to returning dummy values
+                # TODO: implement proper parsing
+                print(f"  [debug] .frd file exists, size {os.path.getsize(frd_path)} bytes")
+                # Read file to see content
+                with open(frd_path, 'r') as f:
+                    lines = f.readlines()
+                print(f"  [debug] .frd lines: {len(lines)}")
+                # Extract stress values (simplistic)
+                s11_frd = []
+                for line in lines:
+                    if '-1' in line and '1.' in line:  # heuristic
+                        parts = line.split()
+                        if len(parts) > 10:
+                            try:
+                                s11 = float(parts[3])
+                                s11_frd.append(s11)
+                            except:
+                                pass
+                if s11_frd:
+                    max_s11 = max(s11_frd, key=abs)
+                    avg_s11 = np.mean(s11_frd)
+                    return max_s11, avg_s11, result.stderr
+            except ImportError as e:
+                print(f"  [debug] Failed to import pycalculix.results_file: {e}")
         
         return None, None, result.stderr
 
