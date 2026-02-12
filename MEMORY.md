@@ -34,7 +34,7 @@
 **2026‑02‑12 10:05 SGT – Crankshaft Generative Design Completed**
 - **Method:** Evolutionary algorithm (DEAP) with 30 individuals × 20 generations.
 - **Objectives:** Minimize mass while satisfying stress, stiffness, and geometric constraints.
-- **Load cases:** Overdrive mode (2800 Nm torque, 180 kN conrod force, 8500 rpm).
+- **Load cases:** Overdrive mode (2800 Nm torque, 180 kN conrod force, 11000 rpm).
 - **Optimal design:**
   - Mass: **13.03 kg** (300M forged steel)
   - Main journal: 70.0 mm diameter × 26.6 mm width
@@ -57,7 +57,7 @@
 
 **2026‑02‑12 16:45 SGT – Connecting‑Rod Generative Design Started**
 - **Material:** Ti‑6Al‑4V titanium (density 4.43 g/cm³, yield 880 MPa).
-- **Load cases:** Overdrive compression 180 kN, tensile 50 kN, eccentricity 0.5 mm.
+- **Load cases:** Overdrive compression 180 kN, tensile 83 kN (11 kRPM), eccentricity 0.5 mm.
 - **Analytical model:** Euler‑Johnson buckling, fatigue (Goodman), bearing pressure, I‑beam cross‑section.
 - **Optimization pipeline:** DEAP evolutionary algorithm with 8 design variables (beam dimensions, bearing widths, fillets).
 - **Initial result** (20‑population × 15‑generations):

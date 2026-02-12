@@ -138,7 +138,7 @@ if __name__ == "__main__":
     cons, metrics = analyzer.evaluate_constraints(
         max_torque_nm=2800.0,
         max_conrod_force_n=180000.0,
-        redline_rpm=8500.0
+        redline_rpm=11000.0
     )
     print("Baseline crankshaft (V12, 8.0 L, 3000 WHP):")
     for k, v in metrics.items():

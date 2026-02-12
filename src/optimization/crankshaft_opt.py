@@ -17,7 +17,7 @@ MATERIAL_FATIGUE_LIMIT = 500.0  # MPa
 # Load cases (overdrive mode, worst‑case)
 PEAK_TORQUE = 2800.0  # N·m
 PEAK_CONROD_FORCE = 180000.0  # N (250 bar peak pressure)
-REDLINE_RPM = 8500.0
+REDLINE_RPM = 11000.0
 
 # Design variable bounds (mm)
 BOUNDS = {

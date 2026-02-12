@@ -12,22 +12,22 @@ CRANK_PIN_DIAMETER = 86.5   # mm (from optimized crankshaft)
 PISTON_PIN_DIAMETER = 28.0  # mm (typical for high‑power V12)
 CENTER_LENGTH = 150.0       # mm (rod length for 95 mm stroke)
 
-# Load cases (overdrive mode worst‑case)
+# Load cases (overdrive mode worst‑case, 11 kRPM)
 COMPRESSION_FORCE = 180000.0  # N (250 bar peak pressure)
-TENSILE_FORCE = 50000.0       # N (inertia)
+TENSILE_FORCE = 83000.0       # N (inertia at 11 kRPM, ~1 kg recip mass)
 ECCENTRICITY = 0.5            # mm (manufacturing misalignment)
 
 # Design variable bounds (mm)
 BOUNDS = {
-    "beam_height": (30.0, 80.0),
-    "beam_width": (20.0, 60.0),
-    "web_thickness": (4.0, 20.0),
-    "flange_thickness": (3.0, 15.0),
-    "big_end_width": (30.0, 80.0),   # must match crankshaft pin width
-    "small_end_width": (20.0, 80.0),
-    "small_end_diameter": (30.0, 60.0),  # piston pin diameter
-    "fillet_big": (2.0, 12.0),
-    "fillet_small": (1.0, 10.0),
+    "beam_height": (30.0, 100.0),
+    "beam_width": (20.0, 80.0),
+    "web_thickness": (4.0, 25.0),
+    "flange_thickness": (3.0, 20.0),
+    "big_end_width": (30.0, 100.0),   # must match crankshaft pin width
+    "small_end_width": (20.0, 100.0),
+    "small_end_diameter": (30.0, 70.0),  # piston pin diameter
+    "fillet_big": (2.0, 15.0),
+    "fillet_small": (1.0, 12.0),
 }
 
 LOWS = [b[0] for b in BOUNDS.values()]

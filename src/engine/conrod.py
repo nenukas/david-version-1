@@ -196,10 +196,10 @@ baseline = ConrodGeometry(
 
 if __name__ == "__main__":
     analyzer = ConrodAnalyzer(baseline)
-    # Loads: overdrive compression 180 kN, tensile (inertia) 50 kN
+    # Loads: overdrive compression 180 kN, tensile (inertia) 83 kN (11 kRPM)
     cons, metrics = analyzer.evaluate_constraints(
         compression_force_n=180000.0,
-        tensile_force_n=50000.0,
+        tensile_force_n=83000.0,
         eccentricity_mm=0.5
     )
     print("Baseline connecting rod (Ti‑6Al‑4V):")
