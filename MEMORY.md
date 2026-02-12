@@ -73,7 +73,16 @@
   - Bearing pressure (small end): 233 MPa (>60 MPa ❌) – improved but still high.
   - Fatigue safety factor: 1.53 (<2 ❌).
   - Small‑end diameter increased to 30.9 mm (from fixed 28 mm).
-- **Next:** Further adjust bounds (increase big‑end width, beam height), re‑optimize, generate CAD.
+- **11 kRPM iteration** (expanded bounds, 30‑population × 20‑generations):
+  - **Result:** No feasible design found under current constraints.
+  - Best infeasible design mass: **1.04 kg**.
+  - Critical violations:
+    - Buckling safety factor: **0.48** (needs ≥2)
+    - Compressive stress: **1024 MPa** (>440 MPa limit)
+    - Small‑end bearing pressure: **275 MPa** (>60 MPa)
+    - Fatigue safety factor: **0.69** (needs ≥2)
+  - **Implication:** At 11 kRPM with 180 kN compression + 83 kN tensile inertia, the current constraints (mass <1 kg, bearing pressure <60 MPa, buckling SF ≥2) may be too strict. Need to relax constraints (allow higher mass, higher bearing pressure, lower buckling safety factor) or increase geometry bounds further.
+- **Next:** Relax constraints (mass limit → 2 kg, bearing pressure limit → 150 MPa, buckling SF → 1.5) and re‑optimize.
 
 ## Technical Stack
 **Generative Design & Optimization:**
