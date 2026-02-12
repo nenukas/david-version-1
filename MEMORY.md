@@ -1,9 +1,11 @@
-# MEMORY.md – DAVID Engineering Assistant
+# MEMORY.md – Slothworks (V12 Hypercar Engineering)
 
 ## Project Identity
-- **Name:** DAVID (Design Assistant for Vehicle Innovation & Development)
+- **Name:** Slothworks (V12 Hypercar Project)
+- **Engineering Assistant:** DAVID (Design Assistant for Vehicle Innovation & Development)
 - **Version:** 1.0
 - **Created:** 2026‑02‑12 09:31 SGT
+- **Renamed:** 2026‑02‑12 18:28 SGT (per user request)
 - **Primary Goal:** Design, simulate, and produce CAD for a working sports car/hypercar.
 - **Secondary Goal:** Evolve into a general‑purpose engineering assistant (JARVIS‑like).
 
