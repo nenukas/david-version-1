@@ -82,7 +82,19 @@
     - Small‑end bearing pressure: **275 MPa** (>60 MPa)
     - Fatigue safety factor: **0.69** (needs ≥2)
   - **Implication:** At 11 kRPM with 180 kN compression + 83 kN tensile inertia, the current constraints (mass <1 kg, bearing pressure <60 MPa, buckling SF ≥2) may be too strict. Need to relax constraints (allow higher mass, higher bearing pressure, lower buckling safety factor) or increase geometry bounds further.
-- **Next:** Relax constraints (mass limit → 2 kg, bearing pressure limit → 150 MPa, buckling SF → 1.5) and re‑optimize.
+- **Relaxed constraints defined** (17:54 SGT) per user request "Relax constraints without losing performance":
+  - **Connecting rod:**
+    - Mass limit: **1.5 kg** (was 1.0 kg)
+    - Bearing pressure limit: **120 MPa** (was 60 MPa)
+    - Buckling safety factor: **≥1.5** (was ≥2.0)
+    - Fatigue safety factor: **≥1.5** (was ≥2.0)
+    - Stress limit: **0.6×yield** (528 MPa, was 0.5×yield 440 MPa)
+  - **Piston:**
+    - Crown bending stress limit: **0.8×yield** (248 MPa, was 0.67×yield 208 MPa)
+    - Pin bearing pressure limit: **80 MPa** (was 60 MPa)
+    - Crown thickness bounds expanded: **8‑20 mm** (was 6‑15 mm)
+    - Pin boss width bounds expanded: **10‑25 mm** (was 8‑20 mm)
+- **Next:** Run generative design optimization with relaxed constraints (two sub‑agents launched).
 
 ## Technical Stack
 **Generative Design & Optimization:**
