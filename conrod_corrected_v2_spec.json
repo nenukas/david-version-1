@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-02-13T23:27:58.249770",
+  "parameters": {
+    "center_length_mm": 150.0,
+    "stroke_full_mm": 95.0,
+    "stroke_radius_mm": 47.5,
+    "rod_ratio": 1.5789473684210527,
+    "big_end_diameter_mm": 61.475,
+    "big_end_width_mm": 22.522,
+    "small_end_diameter_mm": 28.06,
+    "small_end_width_mm": 32.5,
+    "beam_height_big_mm": 55.0,
+    "beam_height_small_mm": 45.0,
+    "beam_width_mm": 30.22,
+    "web_thickness_mm": 5.1,
+    "flange_thickness_mm": 4.61
+  },
+  "corrections_applied": {
+    "beam_taper": "10\u202fmm height reduction (18% taper)",
+    "bolt_spacing": "35.0\u202fmm (was 80\u202fmm)",
+    "bearing_shells": "big\u2011end 2.0\u202fmm, small\u2011end bush 2.5\u202fmm",
+    "oil_passage": "\u00d86.0\u202fmm along beam",
+    "fillets": "R3.0\u202fmm specified",
+    "chamfers": "1.0\u00d745\u00b0 specified",
+    "draft_angles": "1.0\u00b0 required for forging"
+  },
+  "validation_checklist_coverage": [
+    "\u2705 Rod ratio corrected (L/stroke = 1.58)",
+    "\u2705 Beam taper applied (18% reduction)",
+    "\u2705 Bolt spacing corrected (35\u202fmm)",
+    "\u2705 Bearing shells/bushes modeled",
+    "\u2705 Oil passage included",
+    "\u2705 Fillets & chamfers specified",
+    "\u2705 Draft angles noted for manufacturing",
+    "\u26a0\ufe0f  I\u2011beam cross\u2011section simplified to rectangular (structural efficiency reduced)",
+    "\u26a0\ufe0f  Actual fillets/chamfers not applied (edge selection required)",
+    "\u26a0\ufe0f  Draft angles not geometrically implemented (noted only)"
+  ]
+}
