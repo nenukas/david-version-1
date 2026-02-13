@@ -1,0 +1,104 @@
+/home/nenuka/.local/lib/python3.12/site-packages/deap/creator.py:185: RuntimeWarning: A class named 'Fitness' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  warnings.warn("A class named '{0}' has already been created and it "
+/home/nenuka/.local/lib/python3.12/site-packages/deap/creator.py:185: RuntimeWarning: A class named 'Individual' has already been created and it will be overwritten. Consider deleting previous creation of that class or rename it.
+  warnings.warn("A class named '{0}' has already been created and it "
+Cylinder Block Generative Design Optimization
+Engine: 94.5 mm bore × 94.5 mm stroke, V60.0°
+Peak pressure: 25.0 MPa
+Design variables: ['bore_spacing', 'deck_thickness', 'cylinder_wall_thickness', 'water_jacket_thickness', 'main_bearing_width', 'main_bearing_height', 'skirt_depth', 'pan_rail_width']
+Materials to compare: CGI‑450 cast iron, forged aluminum A356‑T6, billet aluminum 7075‑T6
+Population: 30, Generations: 20 per material
+
+============================================================
+Optimizing cylinder block with material: Compacted Graphite Iron 450
+============================================================
+gen	nevals	avg        	min    	max  
+0  	30    	1.33433e+08	61270.3	1e+09
+1  	20    	2.66735e+08	63404.2	1e+09
+2  	18    	1.0007e+08 	63404.2	1e+09
+3  	18    	1.66725e+08	56387.6	1e+09
+4  	26    	1.6672e+08 	37629.3	1e+09
+5  	26    	2.66711e+08	37629.3	1e+09
+6  	24    	2.66707e+08	34264.9	1e+09
+7  	19    	2.66703e+08	35487.7	1e+09
+8  	28    	3.66695e+08	36099.1	1e+09
+9  	22    	1.66701e+08	33943.8	1e+09
+10 	20    	1.66699e+08	33472.3	1e+09
+11 	23    	2.33361e+08	33074.8	1e+09
+12 	27    	2.66692e+08	32678.3	1e+09
+13 	24    	6.66993e+07	32454.3	1e+09
+14 	24    	3.33664e+07	31561.8	1e+09
+15 	24    	1.0003e+08 	31381.7	1e+09
+16 	26    	1.33362e+08	29184.7	1e+09
+17 	28    	3.33646e+07	29615.8	1e+09
+18 	24    	1.33361e+08	29615.8	1e+09
+19 	23    	1.3336e+08 	29615.8	1e+09
+20 	26    	1.00027e+08	27099.8	1e+09
+Results saved to cylinder_block_CGI_450_results_20260212_211018.json
+
+============================================================
+Optimizing cylinder block with material: Forged Aluminum A356‑T6
+============================================================
+gen	nevals	avg        	min  	max  
+0  	30    	1.33371e+08	23300	1e+09
+1  	20    	2.66693e+08	24111.5	1e+09
+2  	18    	1.00026e+08	24111.5	1e+09
+3  	18    	1.66689e+08	21443.2	1e+09
+4  	26    	1.66687e+08	14309.7	1e+09
+5  	26    	2.66684e+08	14309.7	1e+09
+6  	24    	2.66682e+08	13030.3	1e+09
+7  	19    	2.66681e+08	13495.3	1e+09
+8  	28    	3.66678e+08	13727.8	1e+09
+9  	22    	1.6668e+08 	12908.2	1e+09
+10 	20    	1.66679e+08	12728.9	1e+09
+11 	23    	2.33344e+08	12577.7	1e+09
+12 	27    	2.66676e+08	12427  	1e+09
+13 	24    	6.66791e+07	12341.8	1e+09
+14 	24    	3.33459e+07	12002.4	1e+09
+15 	24    	1.00011e+08	11933.9	1e+09
+16 	26    	1.33344e+08	11098.4	1e+09
+17 	28    	3.33452e+07	11262.3	1e+09
+18 	24    	1.33344e+08	11262.3	1e+09
+19 	23    	1.33344e+08	11262.3	1e+09
+20 	26    	1.0001e+08 	10305.6	1e+09
+Results saved to cylinder_block_A356_T6_results_20260212_211018.json
+
+============================================================
+Optimizing cylinder block with material: Billet Aluminum 7075‑T6
+============================================================
+gen	nevals	avg        	min    	max  
+0  	30    	1.33373e+08	24249.2	1e+09
+1  	20    	2.66694e+08	25093.8	1e+09
+2  	18    	1.00028e+08	25093.8	1e+09
+3  	18    	1.6669e+08 	22316.8	1e+09
+4  	26    	1.66688e+08	14892.7	1e+09
+5  	26    	2.66684e+08	14892.7	1e+09
+6  	24    	2.66683e+08	13561.2	1e+09
+7  	19    	2.66681e+08	14045.1	1e+09
+8  	28    	3.66678e+08	14287.1	1e+09
+9  	22    	1.6668e+08 	13434.1	1e+09
+10 	20    	1.66679e+08	13247.5	1e+09
+11 	23    	2.33344e+08	13090.2	1e+09
+12 	27    	2.66677e+08	12933.3	1e+09
+13 	24    	6.66796e+07	12844.6	1e+09
+14 	24    	3.33464e+07	12491.4	1e+09
+15 	24    	1.00012e+08	12420.1	1e+09
+16 	26    	1.33345e+08	11550.6	1e+09
+17 	28    	3.33457e+07	11721.2	1e+09
+18 	24    	1.33344e+08	11721.2	1e+09
+19 	23    	1.33344e+08	11721.2	1e+09
+20 	26    	1.00011e+08	10725.4	1e+09
+Results saved to cylinder_block_7075_T6_results_20260212_211018.json
+
+============================================================
+MATERIAL COMPARISON (best feasible design mass)
+============================================================
+Compacted Graphite Iron 450    mass = 27.1 kg  feasible = False
+Forged Aluminum A356‑T6        mass = 10.3 kg  feasible = False
+Billet Aluminum 7075‑T6        mass = 10.7 kg  feasible = False
+============================================================
+
+⚠️ No feasible designs found for any material.
+   Least‑mass infeasible: Forged Aluminum A356‑T6
+
+✅ Optimization complete. Results saved to JSON files.

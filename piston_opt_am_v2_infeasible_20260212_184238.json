@@ -1,0 +1,64 @@
+{
+  "best_individual": [
+    8.053505883098499,
+    10.254815362973368,
+    38.03009162379903,
+    3.949975087011878,
+    0.5030540808001418
+  ],
+  "fitness_mass": 479.5259889162273,
+  "fitness_violations": 3.0,
+  "geometry": {
+    "crown_thickness": 8.053505883098499,
+    "pin_boss_width": 10.254815362973368,
+    "skirt_length": 38.03009162379903,
+    "skirt_thickness": 3.949975087011878,
+    "lattice_relative_density": 0.5030540808001418
+  },
+  "metrics": {
+    "mass_g": 479.5259889162273,
+    "crown_bending_mpa": 645.408881137657,
+    "pin_bearing_comp_mpa": 313.44159797273403,
+    "pin_bearing_tens_mpa": 144.53140350964958,
+    "pin_bearing_max_mpa": 313.44159797273403,
+    "effective_yield_strength_mpa": 285.438139232802,
+    "effective_modulus_mpa": 53143.315724031876,
+    "lattice_relative_density": 0.5030540808001418
+  },
+  "constraints_satisfied": {
+    "crown_stress_ok": false,
+    "pin_bearing_comp_ok": false,
+    "pin_bearing_tens_ok": false,
+    "mass_ok": true,
+    "lattice_density_ok": true
+  },
+  "feasible_count": 0,
+  "bounds": {
+    "crown_thickness": [
+      8.0,
+      25.0
+    ],
+    "pin_boss_width": [
+      10.0,
+      40.0
+    ],
+    "skirt_length": [
+      30.0,
+      80.0
+    ],
+    "skirt_thickness": [
+      2.0,
+      10.0
+    ],
+    "lattice_relative_density": [
+      0.5,
+      1.0
+    ]
+  },
+  "loads": {
+    "peak_pressure_mpa": 25.0,
+    "peak_force_n": 180000.0,
+    "tensile_force_n": 83000.0
+  },
+  "seed": 1
+}

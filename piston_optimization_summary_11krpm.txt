@@ -1,0 +1,57 @@
+Piston Optimization for 11k RPM Loads
+========================================
+
+Loads:
+- Peak cylinder pressure: 25 MPa
+- Compression force: 180 kN
+- Tensile inertia force: 83 kN
+
+Optimization parameters:
+- Population size: 20
+- Generations: 15
+- Genetic algorithm: DEAP eaSimple, tournament selection, blend crossover, polynomial mutation
+
+Bounds (mm):
+- Crown thickness: 6.0 - 15.0
+- Pin boss width: 8.0 - 20.0
+- Skirt length: 30.0 - 60.0
+- Skirt thickness: 2.0 - 6.0
+
+Results:
+--------
+Feasible designs found: 0 (no design satisfies all constraints)
+
+Best infeasible design (lowest mass):
+- Crown thickness: 6.13 mm
+- Pin boss width: 9.22 mm
+- Skirt length: 36.48 mm
+- Skirt thickness: 2.03 mm
+
+Mass: 228.82 g
+
+Stress metrics:
+- Crown bending stress: 1112.7 MPa (limit: 207.7 MPa)
+- Pin bearing pressure (compression): 348.6 MPa (limit: 60 MPa)
+- Pin bearing pressure (tension): 160.8 MPa (limit: 60 MPa)
+
+Constraints satisfied:
+- Crown stress OK: False
+- Pin bearing compression OK: False
+- Pin bearing tension OK: False
+- Mass OK: True (mass < 500 g)
+
+Required dimensions to satisfy constraints (theoretical):
+- Minimum crown thickness: 14.2 mm (within bounds)
+- Minimum pin boss width: 53.6 mm (exceeds max bound 20 mm)
+
+Conclusion:
+-----------
+Under the given loads and constraints, no feasible piston design exists within the defined bounds. The primary limiting factor is pin bearing pressure, which requires an unrealistically wide pin boss. The crown bending stress also exceeds the allowable limit, but could be mitigated by increasing crown thickness toward the upper bound.
+
+CAD generation: Skipped because constraints not satisfied.
+
+Optimization completed successfully; results saved to:
+- piston_opt_results_11krpm_20260212_174515.json
+- This summary file
+
+Next steps: Consider revising bearing pressure limit, increasing pin diameter, adding bushing, or expanding design bounds.

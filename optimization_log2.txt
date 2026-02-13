@@ -1,0 +1,58 @@
+Starting piston generative design with ADDITIVE MANUFACTURING V5...
+Material: forged steel with lattice infill (ρ_rel 0.6–1.0)
+Enforced geometric bounds: pin boss width ≥32 mm, crown thickness ≥12 mm
+Relaxed constraints: mass <1500 g, crown stress <0.8×yield, pin bearing pressure <100 MPa
+Bounds: {'crown_thickness': (12.0, 35.0), 'pin_boss_width': (32.0, 60.0), 'skirt_length': (30.0, 100.0), 'skirt_thickness': (2.0, 15.0), 'lattice_relative_density': (0.6, 1.0)}
+Population: 30, Generations: 20
+Loads: 25.0 MPa peak pressure, 180.0 kN compression, 83.0 kN inertia
+Starting seed: 2 (best previous seed)
+gen	nevals	avg   	min   	max  
+0  	30    	202933	1978.3	1e+06
+1  	25    	302239	1978.3	1e+06
+2  	25    	235867	1978.3	1e+06
+3  	22    	235578	1949.33	1e+06
+4  	16    	69329.6	2048.72	1e+06
+5  	26    	202163 	2403.34	1e+06
+6  	25    	35798.4	1952.01	1e+06
+7  	25    	135466 	1952.01	1e+06
+8  	22    	102065 	1801.01	1e+06
+9  	27    	168409 	1775.1 	1e+06
+10 	24    	68532.7	1655.12	1e+06
+11 	24    	68424.8	1724.58	1e+06
+12 	25    	101670 	1488.27	1e+06
+13 	27    	134863 	1523.81	1e+06
+14 	26    	68263.6	1491.23	1e+06
+15 	26    	68225.1	1454.46	1e+06
+16 	23    	68151.8	1354.26	1e+06
+17 	24    	234523 	1426.83	1e+06
+18 	29    	134633 	1416.72	1e+06
+19 	15    	68056  	1416.72	1e+06
+20 	26    	334317 	1394.87	1e+06
+
+=== OPTIMIZATION RESULTS ===
+Best individual: [12.294268983084963, 32.203237557433255, 56.99196815909903, 4.200942736634229, 0.614649041171714]
+Fitness (mass, violations): (1394.8706941265661, 0.0)
+Feasible designs found: 12
+
+Detailed metrics:
+  mass_g: 1394.871
+  crown_bending_mpa: 276.949
+  pin_bearing_comp_mpa: 99.813
+  pin_bearing_tens_mpa: 46.025
+  pin_bearing_max_mpa: 99.813
+  effective_yield_strength_mpa: 385.506
+  effective_modulus_mpa: 79336.623
+  lattice_relative_density: 0.615
+Constraints satisfied:
+  crown_stress_ok: True
+  pin_bearing_comp_ok: True
+  pin_bearing_tens_ok: True
+  mass_ok: True
+  lattice_density_ok: True
+Results saved to piston_opt_am_v5_results_20260212_194740.json
+
+All constraints satisfied. Generating CAD...
+CAD model saved to piston_opt_am_v5_results_20260212_194740.step
+STL model saved to piston_opt_am_v5_results_20260212_194740.stl
+
+✅ Optimization complete.

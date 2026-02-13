@@ -1,0 +1,41 @@
+[
+  {
+    "material": "Forged Aluminum A356\u2011T6",
+    "mass_kg": 10.305563958206765,
+    "feasible": false,
+    "violations": 4.0,
+    "violated_constraints": [
+      "hoop_stress_ok",
+      "deck_stress_ok",
+      "bearing_pressure_ok",
+      "bulkhead_bending_ok"
+    ],
+    "file": "cylinder_block_A356_T6_results_20260212_211018.json"
+  },
+  {
+    "material": "Billet Aluminum 7075\u2011T6",
+    "mass_kg": 10.725420267615188,
+    "feasible": false,
+    "violations": 4.0,
+    "violated_constraints": [
+      "hoop_stress_ok",
+      "deck_stress_ok",
+      "bearing_pressure_ok",
+      "bulkhead_bending_ok"
+    ],
+    "file": "cylinder_block_7075_T6_results_20260212_211018.json"
+  },
+  {
+    "material": "Compacted Graphite Iron 450",
+    "mass_kg": 27.099816334543714,
+    "feasible": false,
+    "violations": 4.0,
+    "violated_constraints": [
+      "hoop_stress_ok",
+      "deck_stress_ok",
+      "bearing_pressure_ok",
+      "bulkhead_bending_ok"
+    ],
+    "file": "cylinder_block_CGI_450_results_20260212_211018.json"
+  }
+]

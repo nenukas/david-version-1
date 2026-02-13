@@ -1,0 +1,47 @@
+Starting connecting‑rod generative design optimization...
+Bounds: {'beam_height': (30.0, 80.0), 'beam_width': (20.0, 60.0), 'web_thickness': (4.0, 20.0), 'flange_thickness': (3.0, 15.0), 'big_end_width': (30.0, 80.0), 'small_end_width': (20.0, 80.0), 'small_end_diameter': (30.0, 60.0), 'fillet_big': (2.0, 12.0), 'fillet_small': (1.0, 10.0)}
+Loads: 180.0 kN compression, 50.0 kN tensile
+gen	nevals	avg   	min   	max   
+0  	20    	4.7185	1.9532	7.3961
+1  	17    	350002	2.013 	1e+06 
+2  	15    	50002.5	2.013 	1e+06 
+3  	14    	350001 	2.013 	1e+06 
+4  	16    	200002 	1.99517	1e+06 
+5  	14    	2.0158 	1.79354	2.24471
+6  	18    	2.00926	1.9003 	2.36745
+7  	20    	50001.9	1.8071 	1e+06  
+8  	15    	50001.8	1.65228	1e+06  
+9  	20    	150002 	1.62158	1e+06  
+10 	13    	50001.7	1.55317	1e+06  
+11 	16    	1.73434	1.48704	2.14924
+12 	14    	50001.6	1.48528	1e+06  
+13 	16    	1.53882	1.47617	1.88586
+14 	14    	50001.4	1.43636	1e+06  
+15 	17    	50001.4	1.41811	1e+06  
+
+=== OPTIMIZATION RESULTS ===
+Best individual: [58.599574617564585, 20.483572717255804, 4.354199157207783, 9.247520790384243, 32.219497458851286, 21.810511039518836, 41.14619983891006, 10.641388995915529, 4.717332958480662]
+Fitness (mass, violations): (1.4181117666542702, 3.0)
+
+Detailed metrics:
+  mass_kg: 1.418
+  axial_stress_comp_mpa: 325.222
+  axial_stress_tens_mpa: 90.340
+  bending_stress_mpa: 10.269
+  total_stress_comp_mpa: 335.491
+  total_stress_tens_mpa: 100.609
+  buckling_critical_stress_mpa: 720.133
+  buckling_safety_factor: 2.214
+  bearing_pressure_big_mpa: 64.586
+  bearing_pressure_small_mpa: 200.575
+  fatigue_safety_factor: 1.966
+  slenderness_ratio: 30.347
+Constraints satisfied:
+  buckling_ok: True
+  compressive_stress_ok: True
+  tensile_stress_ok: True
+  bearing_pressure_ok: False
+  fatigue_ok: False
+  mass_ok: False
+
+✅ Optimization complete. CAD generation pending.

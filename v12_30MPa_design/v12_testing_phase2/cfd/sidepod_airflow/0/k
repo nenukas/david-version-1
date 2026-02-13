@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|   \\  /   O peration     | Version:  v2312                                 |
+|    \\/    A nd           | Website:  www.openfoam.com                      |
+|     \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      k;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 2 -2 0 0 0 0];
+
+internalField   uniform 3.375;  // I=5%, U=30 m/s → k=1.5*(0.05*30)^2=3.375
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 3.375;
+    }
+
+    outlet
+    {
+        type            zeroGradient;
+    }
+
+    sidepod_wall
+    {
+        type            kqRWallFunction;
+        value           uniform 3.375;
+    }
+
+    intercooler
+    {
+        type            kqRWallFunction;
+        value           uniform 3.375;
+    }
+
+    symmetry
+    {
+        type            symmetry;
+    }
+}
+
+// ************************************************************************* //

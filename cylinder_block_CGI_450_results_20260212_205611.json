@@ -1,0 +1,230 @@
+{
+  "material": "CGI_450",
+  "material_name": "Compacted Graphite Iron 450",
+  "best_individual": [
+    128.96701001448264,
+    14.857655925970773,
+    6.162872174096874,
+    4.249287330769877,
+    41.869062945323755,
+    25.611879597488436,
+    104.17057722788888,
+    27.257638296651415
+  ],
+  "fitness_mass": 1000000000.0,
+  "fitness_violations": 5.0,
+  "geometry": {
+    "bore_spacing": 128.96701001448264,
+    "deck_thickness": 14.857655925970773,
+    "cylinder_wall_thickness": 6.162872174096874,
+    "water_jacket_thickness": 4.249287330769877,
+    "main_bearing_width": 41.869062945323755,
+    "main_bearing_height": 25.611879597488436,
+    "skirt_depth": 104.17057722788888,
+    "pan_rail_width": 27.257638296651415
+  },
+  "metrics": {
+    "mass_g": 45011.36918398383,
+    "mass_kg": 45.01136918398383,
+    "hoop_stress_mpa": 204.93728041627378,
+    "deck_stress_mpa": 189.62880328798897,
+    "bearing_pressure_mpa": 163515457.68557015,
+    "bulkhead_bending_stress_mpa": 1809966038.509918,
+    "material": "Compacted Graphite Iron 450"
+  },
+  "constraints_satisfied": {
+    "hoop_stress_ok": true,
+    "deck_stress_ok": true,
+    "bearing_pressure_ok": false,
+    "bulkhead_bending_ok": false,
+    "mass_ok": true,
+    "geometric_ok": false
+  },
+  "feasible_count": 0,
+  "bounds": {
+    "bore_spacing": [
+      100.0,
+      150.0
+    ],
+    "deck_thickness": [
+      8.0,
+      30.0
+    ],
+    "cylinder_wall_thickness": [
+      3.0,
+      10.0
+    ],
+    "water_jacket_thickness": [
+      2.0,
+      8.0
+    ],
+    "main_bearing_width": [
+      20.0,
+      60.0
+    ],
+    "main_bearing_height": [
+      30.0,
+      100.0
+    ],
+    "skirt_depth": [
+      50.0,
+      150.0
+    ],
+    "pan_rail_width": [
+      10.0,
+      30.0
+    ]
+  },
+  "loads": {
+    "peak_pressure_mpa": 25.0
+  },
+  "logbook": [
+    {
+      "gen": 0,
+      "nevals": 30,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 1,
+      "nevals": 20,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 2,
+      "nevals": 18,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 3,
+      "nevals": 18,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 4,
+      "nevals": 26,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 5,
+      "nevals": 26,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 6,
+      "nevals": 24,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 7,
+      "nevals": 19,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 8,
+      "nevals": 28,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 9,
+      "nevals": 22,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 10,
+      "nevals": 20,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 11,
+      "nevals": 23,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 12,
+      "nevals": 27,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 13,
+      "nevals": 24,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 14,
+      "nevals": 24,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 15,
+      "nevals": 24,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 16,
+      "nevals": 26,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 17,
+      "nevals": 28,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 18,
+      "nevals": 24,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 19,
+      "nevals": 23,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    },
+    {
+      "gen": 20,
+      "nevals": 26,
+      "avg": 1000000000.0,
+      "min": 1000000000.0,
+      "max": 1000000000.0
+    }
+  ]
+}

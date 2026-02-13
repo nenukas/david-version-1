@@ -1,0 +1,115 @@
+================================================================
+ INTERCOOLER CORE – PROTOTYPE TESTING PLAN
+================================================================
+
+## 1. OBJECTIVE
+Validate heat‑transfer performance and pressure drop of the water‑cooled plate‑fin
+intercooler core under simulated hypercar operating conditions.
+
+## 2. PROTOTYPE SPECIFICATIONS
+- **Core dimensions:** 400 × 400 × 100 mm (placeholder)
+- **Fin type:** Offset‑strip fins (aluminum)
+- **Fin density:** 20 fins/inch (7.87 fins/cm)
+- **Plate thickness:** 0.3 mm
+- **Material:** 3003‑H14 aluminum (brazable)
+- **Design heat load:** 193 kW total (two cores)
+- **Air‑side pressure drop target:** <5 kPa at 30 m/s face velocity
+
+## 3. MANUFACTURING STEPS
+
+### 3.1 CNC Machining of End‑Tanks & Headers
+- **Material:** 6061‑T6 aluminum
+- **Operations:** 3‑axis milling of inlet/outlet ports, O‑ring grooves
+- **Quantity:** 2 sets (air side, coolant side)
+
+### 3.2 Fin Stack Preparation
+- **Fin stock:** Pre‑corrugated 3003‑H14 sheets
+- **Cutting:** Laser cut to 398 × 398 mm
+- **Cleaning:** Alkaline degrease, acid etch, rinse, dry
+
+### 3.3 Vacuum Brazing
+- **Furnace:** Vacuum furnace with temperature uniformity ±5 °C
+- **Brazing alloy:** AWS BAISI‑4 (Al‑Si‑Mg) foil, 0.1 mm thickness
+- **Cycle:** 
+  1. Ramp to 450 °C at 10 °C/min (hold 30 min)
+  2. Ramp to 600 °C at 5 °C/min (hold 60 min)
+  3. Cool to 300 °C at 5 °C/min, then furnace cool
+- **Post‑braze:** Pressure test at 1.5× design pressure (2.25 bar air‑side, 6 bar coolant‑side)
+
+### 3.4 Finishing
+- **Leak test:** Submerge in water, pressurize with air to 1.5 bar, inspect bubbles
+- **Surface finish:** Mill flatness ≤0.1 mm, deburr ports
+- **Coating:** None (bare aluminum)
+
+## 4. TEST SETUP
+
+### 4.1 Air Loop
+- **Blower:** Centrifugal fan with VFD, 0–5000 m³/h capacity
+- **Heater:** 30 kW electric air heater (PID controlled)
+- **Ducting:** 400 × 400 mm square‑to‑round transition, flow straightener
+- **Measurements:**
+  - **Flow rate:** Orifice plate (ISO 5167) ±1%
+  - **Temperature:** Type‑K thermocouples (air in/out) ±0.5 °C
+  - **Pressure drop:** Differential pressure transducer (0–10 kPa) ±0.1% FS
+
+### 4.2 Coolant Loop
+- **Pump:** Centrifugal pump with bypass valve, 0–20 L/min
+- **Chiller:** Recirculating chiller set to 20 °C (simulate radiator outlet)
+- **Measurements:**
+  - **Flow rate:** Magnetic flowmeter ±0.5%
+  - **Temperature:** RTD probes (coolant in/out) ±0.1 °C
+  - **Pressure:** Gauge pressure transducers (0–10 bar)
+
+### 4.3 Data Acquisition
+- **DAQ:** National Instruments cDAQ‑9189 with thermocouple & analog modules
+- **Sampling rate:** 1 Hz (steady‑state), 10 Hz (transient)
+- **Software:** LabVIEW custom VI (log T, ΔP, flow)
+
+## 5. TEST MATRIX
+
+| Run | Air velocity [m/s] | Air inlet temp [°C] | Coolant flow [L/min] | Coolant inlet temp [°C] | Purpose |
+|-----|-------------------|---------------------|----------------------|-------------------------|---------|
+| 1   | 10 | 35 | 10 | 20 | Baseline low‑flow |
+| 2   | 20 | 35 | 10 | 20 | Mid‑flow |
+| 3   | 30 | 35 | 10 | 20 | Design condition |
+| 4   | 30 | 100 | 10 | 20 | High ΔT (simulate turbo outlet) |
+| 5   | 30 | 35 | 5 | 20 | Reduced coolant flow |
+| 6   | 30 | 35 | 15 | 20 | Increased coolant flow |
+| 7   | 40 | 35 | 10 | 20 | Over‑speed condition |
+
+## 6. EXPECTED RESULTS
+- **Heat transfer rate:** ≥90 kW per core at design condition (30 m/s, ΔT_air=65 K)
+- **Air‑side pressure drop:** ≤5 kPa at 30 m/s
+- **Coolant‑side pressure drop:** ≤0.5 bar at 10 L/min
+- **Effectiveness:** ≥0.85 (air‑side)
+
+## 7. ACCEPTANCE CRITERIA
+- No leaks at 1.5× design pressure (2.25 bar air, 6 bar coolant)
+- Heat‑transfer rate within ±10% of CFD prediction
+- Pressure drop within ±15% of CFD prediction
+- Thermal gradient across core face ≤5 K
+
+## 8. TIMELINE
+- **Week 1:** CNC machining of end‑tanks, laser cutting of fins
+- **Week 2:** Brazing & pressure test
+- **Week 3:** Instrumentation & test setup calibration
+- **Week 4:** Steady‑state performance mapping
+- **Week 5:** Transient response tests, data analysis, report
+
+## 9. RISKS & MITIGATION
+- **Risk:** Brazing voids reduce heat transfer.
+  **Mitigation:** X‑ray inspection of sample coupons before full core.
+- **Risk:** Air‑flow maldistribution due to duct transitions.
+  **Mitigation:** Install flow straightener (honeycomb) upstream.
+- **Risk:** Thermocouple conduction errors.
+  **Mitigation:** Use thin‑wire exposed‑junction T/Cs, radiation shields.
+
+## 10. DELIVERABLES
+1. **Test report** with raw data, reduced performance curves, uncertainty analysis.
+2. **Validated CFD boundary conditions** (heat‑transfer coefficient vs. velocity).
+3. **Recommendations** for production core design (fin density, material thickness).
+4. **As‑built drawings** of prototype with dimensional deviations.
+
+================================================================
+END OF TEST PLAN
+================================================================
