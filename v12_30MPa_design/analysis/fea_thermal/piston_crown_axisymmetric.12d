@@ -1,0 +1,250 @@
+ ELEMENT            1 with label "CAX4    " and with nodes:
+          1          2         13         12
+  is expanded into a "C3D8  A " element with topology:
+         67         70        103        100         69         72        105        102
+
+ ELEMENT            2 with label "CAX4    " and with nodes:
+          2          3         14         13
+  is expanded into a "C3D8  A " element with topology:
+         70         73        106        103         72         75        108        105
+
+ ELEMENT            3 with label "CAX4    " and with nodes:
+          3          4         15         14
+  is expanded into a "C3D8  A " element with topology:
+         73         76        109        106         75         78        111        108
+
+ ELEMENT            4 with label "CAX4    " and with nodes:
+          4          5         16         15
+  is expanded into a "C3D8  A " element with topology:
+         76         79        112        109         78         81        114        111
+
+ ELEMENT            5 with label "CAX4    " and with nodes:
+          5          6         17         16
+  is expanded into a "C3D8  A " element with topology:
+         79         82        115        112         81         84        117        114
+
+ ELEMENT            6 with label "CAX4    " and with nodes:
+          6          7         18         17
+  is expanded into a "C3D8  A " element with topology:
+         82         85        118        115         84         87        120        117
+
+ ELEMENT            7 with label "CAX4    " and with nodes:
+          7          8         19         18
+  is expanded into a "C3D8  A " element with topology:
+         85         88        121        118         87         90        123        120
+
+ ELEMENT            8 with label "CAX4    " and with nodes:
+          8          9         20         19
+  is expanded into a "C3D8  A " element with topology:
+         88         91        124        121         90         93        126        123
+
+ ELEMENT            9 with label "CAX4    " and with nodes:
+          9         10         21         20
+  is expanded into a "C3D8  A " element with topology:
+         91         94        127        124         93         96        129        126
+
+ ELEMENT           10 with label "CAX4    " and with nodes:
+         10         11         22         21
+  is expanded into a "C3D8  A " element with topology:
+         94         97        130        127         96         99        132        129
+
+ ELEMENT           11 with label "CAX4    " and with nodes:
+         12         13         24         23
+  is expanded into a "C3D8  A " element with topology:
+        100        103        136        133        102        105        138        135
+
+ ELEMENT           12 with label "CAX4    " and with nodes:
+         13         14         25         24
+  is expanded into a "C3D8  A " element with topology:
+        103        106        139        136        105        108        141        138
+
+ ELEMENT           13 with label "CAX4    " and with nodes:
+         14         15         26         25
+  is expanded into a "C3D8  A " element with topology:
+        106        109        142        139        108        111        144        141
+
+ ELEMENT           14 with label "CAX4    " and with nodes:
+         15         16         27         26
+  is expanded into a "C3D8  A " element with topology:
+        109        112        145        142        111        114        147        144
+
+ ELEMENT           15 with label "CAX4    " and with nodes:
+         16         17         28         27
+  is expanded into a "C3D8  A " element with topology:
+        112        115        148        145        114        117        150        147
+
+ ELEMENT           16 with label "CAX4    " and with nodes:
+         17         18         29         28
+  is expanded into a "C3D8  A " element with topology:
+        115        118        151        148        117        120        153        150
+
+ ELEMENT           17 with label "CAX4    " and with nodes:
+         18         19         30         29
+  is expanded into a "C3D8  A " element with topology:
+        118        121        154        151        120        123        156        153
+
+ ELEMENT           18 with label "CAX4    " and with nodes:
+         19         20         31         30
+  is expanded into a "C3D8  A " element with topology:
+        121        124        157        154        123        126        159        156
+
+ ELEMENT           19 with label "CAX4    " and with nodes:
+         20         21         32         31
+  is expanded into a "C3D8  A " element with topology:
+        124        127        160        157        126        129        162        159
+
+ ELEMENT           20 with label "CAX4    " and with nodes:
+         21         22         33         32
+  is expanded into a "C3D8  A " element with topology:
+        127        130        163        160        129        132        165        162
+
+ ELEMENT           21 with label "CAX4    " and with nodes:
+         23         24         35         34
+  is expanded into a "C3D8  A " element with topology:
+        133        136        169        166        135        138        171        168
+
+ ELEMENT           22 with label "CAX4    " and with nodes:
+         24         25         36         35
+  is expanded into a "C3D8  A " element with topology:
+        136        139        172        169        138        141        174        171
+
+ ELEMENT           23 with label "CAX4    " and with nodes:
+         25         26         37         36
+  is expanded into a "C3D8  A " element with topology:
+        139        142        175        172        141        144        177        174
+
+ ELEMENT           24 with label "CAX4    " and with nodes:
+         26         27         38         37
+  is expanded into a "C3D8  A " element with topology:
+        142        145        178        175        144        147        180        177
+
+ ELEMENT           25 with label "CAX4    " and with nodes:
+         27         28         39         38
+  is expanded into a "C3D8  A " element with topology:
+        145        148        181        178        147        150        183        180
+
+ ELEMENT           26 with label "CAX4    " and with nodes:
+         28         29         40         39
+  is expanded into a "C3D8  A " element with topology:
+        148        151        184        181        150        153        186        183
+
+ ELEMENT           27 with label "CAX4    " and with nodes:
+         29         30         41         40
+  is expanded into a "C3D8  A " element with topology:
+        151        154        187        184        153        156        189        186
+
+ ELEMENT           28 with label "CAX4    " and with nodes:
+         30         31         42         41
+  is expanded into a "C3D8  A " element with topology:
+        154        157        190        187        156        159        192        189
+
+ ELEMENT           29 with label "CAX4    " and with nodes:
+         31         32         43         42
+  is expanded into a "C3D8  A " element with topology:
+        157        160        193        190        159        162        195        192
+
+ ELEMENT           30 with label "CAX4    " and with nodes:
+         32         33         44         43
+  is expanded into a "C3D8  A " element with topology:
+        160        163        196        193        162        165        198        195
+
+ ELEMENT           31 with label "CAX4    " and with nodes:
+         34         35         46         45
+  is expanded into a "C3D8  A " element with topology:
+        166        169        202        199        168        171        204        201
+
+ ELEMENT           32 with label "CAX4    " and with nodes:
+         35         36         47         46
+  is expanded into a "C3D8  A " element with topology:
+        169        172        205        202        171        174        207        204
+
+ ELEMENT           33 with label "CAX4    " and with nodes:
+         36         37         48         47
+  is expanded into a "C3D8  A " element with topology:
+        172        175        208        205        174        177        210        207
+
+ ELEMENT           34 with label "CAX4    " and with nodes:
+         37         38         49         48
+  is expanded into a "C3D8  A " element with topology:
+        175        178        211        208        177        180        213        210
+
+ ELEMENT           35 with label "CAX4    " and with nodes:
+         38         39         50         49
+  is expanded into a "C3D8  A " element with topology:
+        178        181        214        211        180        183        216        213
+
+ ELEMENT           36 with label "CAX4    " and with nodes:
+         39         40         51         50
+  is expanded into a "C3D8  A " element with topology:
+        181        184        217        214        183        186        219        216
+
+ ELEMENT           37 with label "CAX4    " and with nodes:
+         40         41         52         51
+  is expanded into a "C3D8  A " element with topology:
+        184        187        220        217        186        189        222        219
+
+ ELEMENT           38 with label "CAX4    " and with nodes:
+         41         42         53         52
+  is expanded into a "C3D8  A " element with topology:
+        187        190        223        220        189        192        225        222
+
+ ELEMENT           39 with label "CAX4    " and with nodes:
+         42         43         54         53
+  is expanded into a "C3D8  A " element with topology:
+        190        193        226        223        192        195        228        225
+
+ ELEMENT           40 with label "CAX4    " and with nodes:
+         43         44         55         54
+  is expanded into a "C3D8  A " element with topology:
+        193        196        229        226        195        198        231        228
+
+ ELEMENT           41 with label "CAX4    " and with nodes:
+         45         46         57         56
+  is expanded into a "C3D8  A " element with topology:
+        199        202        235        232        201        204        237        234
+
+ ELEMENT           42 with label "CAX4    " and with nodes:
+         46         47         58         57
+  is expanded into a "C3D8  A " element with topology:
+        202        205        238        235        204        207        240        237
+
+ ELEMENT           43 with label "CAX4    " and with nodes:
+         47         48         59         58
+  is expanded into a "C3D8  A " element with topology:
+        205        208        241        238        207        210        243        240
+
+ ELEMENT           44 with label "CAX4    " and with nodes:
+         48         49         60         59
+  is expanded into a "C3D8  A " element with topology:
+        208        211        244        241        210        213        246        243
+
+ ELEMENT           45 with label "CAX4    " and with nodes:
+         49         50         61         60
+  is expanded into a "C3D8  A " element with topology:
+        211        214        247        244        213        216        249        246
+
+ ELEMENT           46 with label "CAX4    " and with nodes:
+         50         51         62         61
+  is expanded into a "C3D8  A " element with topology:
+        214        217        250        247        216        219        252        249
+
+ ELEMENT           47 with label "CAX4    " and with nodes:
+         51         52         63         62
+  is expanded into a "C3D8  A " element with topology:
+        217        220        253        250        219        222        255        252
+
+ ELEMENT           48 with label "CAX4    " and with nodes:
+         52         53         64         63
+  is expanded into a "C3D8  A " element with topology:
+        220        223        256        253        222        225        258        255
+
+ ELEMENT           49 with label "CAX4    " and with nodes:
+         53         54         65         64
+  is expanded into a "C3D8  A " element with topology:
+        223        226        259        256        225        228        261        258
+
+ ELEMENT           50 with label "CAX4    " and with nodes:
+         54         55         66         65
+  is expanded into a "C3D8  A " element with topology:
+        226        229        262        259        228        231        264        261
+

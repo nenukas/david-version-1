@@ -1,0 +1,72 @@
+================================================================
+ ANSYS THERMO‑MECHANICAL SIMULATION SETUP – PISTON CROWN (V12)
+================================================================
+
+1. GEOMETRY
+   • CAD file: piston_crown_15.0mm.step (axisymmetric profile)
+   • Crown thickness: 15.0 mm (increased from 12.294 mm)
+   • Bore diameter: 94.5 mm
+   • Other dimensions from relaxed‑optimization JSON.
+
+2. MATERIAL (FORGED STEEL – 4340)
+   • Young’s modulus: 210 GPa
+   • Poisson’s ratio: 0.29
+   • Yield strength (0.9×relaxed): 386 MPa
+   • Thermal expansion coefficient: 1.2×10⁻⁵ K⁻¹
+   • Thermal conductivity: 50 W/(m·K)
+   • Density: 7850 kg/m³
+
+3. LOADS & BOUNDARY CONDITIONS
+   (a) PRESSURE LOAD (MECHANICAL)
+       • Uniform pressure on crown top surface: 30 MPa (300 bar)
+       • Corresponding von‑Mises stress (pressure‑only): ≈202 MPa
+   (b) THERMAL LOADS
+       • Heat flux on crown top: 3 MW/m² = 0.003 W/mm² (typical gasoline turbo)
+       • Convection on bottom (water jacket):
+         – h = 8000 W/(m²·K)
+         – Coolant temperature = 90 °C
+       • Oil‑jet impingement (additional cooling):
+         – Effective combined h = 15000 W/(m²·K)
+   (c) BOUNDARY CONDITIONS
+       • Bottom edge (z=0): fixed in Z direction (UZ=0)
+       • Symmetry axis (r=0): fixed in radial direction (UR=0)
+       • Initial temperature: 90 °C
+
+4. THERMAL RESISTANCES (ANALYTICAL)
+   • Conduction R_cond = 300 K/(W/mm²)
+   • Convection R_conv (water only) = 125 K/(W/mm²)
+   • Convection R_conv (water+oil) = 66.7 K/(W/mm²)
+   • Total ΔT across crown (at 0.003 W/mm²) = 0.9 K → negligible thermal stress.
+
+5. CRITICAL HEAT FLUX
+   • Critical heat flux (σ_total = 386 MPa) = 0.347 W/mm² (347 MW/m²)
+   • ΔT_crown at critical flux = 104 K
+   • Top‑surface temperature rise (water+oil cooling) = 127 K
+   • SAFE MARGIN: >100× typical combustion flux.
+
+6. SIMULATION RECOMMENDATIONS
+   • Use axisymmetric 2D elements (PLANE223 coupled‑field).
+   • Steady‑state thermal analysis followed by static structural.
+   • Apply heat flux as surface load, convection as film condition.
+   • Mesh refinement near crown top and bottom surfaces.
+   • Extract von‑Mises stress and temperature distribution.
+
+7. EXPECTED RESULTS
+   • Maximum von‑Mises stress: <250 MPa (combined pressure+thermal)
+   • Maximum temperature: <220 °C (90°C + ΔT)
+   • Safety factor (0.9×yield): >1.5
+
+8. FILES PROVIDED
+   • piston_crown_15.0mm.step – CAD geometry
+   • piston_crown_15.0mm.json – updated geometry parameters
+   • thermal_assessment_updated.py – analytical script
+   • piston_crown_axisymmetric.inp – CalculiX pressure‑only FEA input
+
+9. NOTES
+   • The improved design (thicker crown + enhanced cooling) ensures feasibility at 3000 whp.
+   • Oil‑jet impingement significantly reduces metal temperature.
+   • For extreme conditions, consider copper‑alloy insert or active cooling channels.
+
+================================================================
+END OF GUIDE
+================================================================

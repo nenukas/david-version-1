@@ -1,0 +1,4 @@
+read piston_crown_axisymmetric.frd
+plot c all
+hardcopy piston_stress.png
+exit

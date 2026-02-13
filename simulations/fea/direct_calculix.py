@@ -80,7 +80,7 @@ def create_cantilever_inp(width=70.0, height=30.0, length=47.5, force_n=180000.0
             for iz in range(nz):
                 if ix == nx - 1:  # elements at x=length
                     elem = (ix * ny * nz) + (iy * nz) + iz + 1
-                    inp.append(f"{elem},SP")  # face 2 (x=+1)
+                    inp.append(f"{elem},S2")  # face 2 (x=+1)
     inp.append("*DLOAD")
     inp.append(f"LOADFACE,P,{pressure:.6f}")
     
@@ -102,6 +102,7 @@ def run_ccx(inp_content, basename="cantilever"):
         with open(inp_path, 'w') as f:
             f.write(inp_content)
         
+        print(f"  [debug] Running ccx in {tmpdir}")
         # Run ccx
         cmd = ["ccx", "-i", basename]
         result = subprocess.run(
@@ -110,12 +111,23 @@ def run_ccx(inp_content, basename="cantilever"):
             capture_output=True,
             text=True
         )
+        print(f"  [debug] ccx return code: {result.returncode}")
+        if result.stderr:
+            print(f"  [debug] ccx stderr (first 200): {result.stderr[:200]}")
+        
+        # List generated files
+        for fname in os.listdir(tmpdir):
+            if fname.startswith(basename):
+                fpath = os.path.join(tmpdir, fname)
+                size = os.path.getsize(fpath)
+                print(f"  [debug]   {fname}: {size} bytes")
         
         # Parse .dat file for stress
         dat_path = os.path.join(tmpdir, f"{basename}.dat")
         if os.path.exists(dat_path):
             with open(dat_path, 'r') as f:
                 dat_lines = f.readlines()
+            print(f"  [debug] .dat lines: {len(dat_lines)}")
             
             # Find element stress output block
             in_stress_block = False
@@ -141,33 +153,32 @@ def run_ccx(inp_content, basename="cantilever"):
             if s11_values:
                 max_s11 = max(s11_values, key=abs)
                 avg_s11 = np.mean(s11_values)
+                print(f"  [debug] Parsed {len(s11_values)} S11 values")
                 return max_s11, avg_s11, result.stderr
         
         # Try parsing .frd file via pycalculix
         frd_path = os.path.join(tmpdir, f"{basename}.frd")
         if os.path.exists(frd_path):
+            print(f"  [debug] .frd file exists, size {os.path.getsize(frd_path)} bytes")
             try:
                 import sys
                 sys.path.insert(0, '/home/nenuka/.local/lib/python3.12/site-packages')
                 from pycalculix.results_file import FrdFile
                 frd = FrdFile(frd_path)
-                # Get element stress results
-                # The API might be: frd.get_element_stress() or similar
-                # We'll attempt to read element results
-                # For now, fallback to returning dummy values
-                # TODO: implement proper parsing
-                print(f"  [debug] .frd file exists, size {os.path.getsize(frd_path)} bytes")
-                # Read file to see content
+                # Try to get element results
+                # The FrdFile may have methods like get_element_stress()
+                # For now, read raw lines
                 with open(frd_path, 'r') as f:
                     lines = f.readlines()
                 print(f"  [debug] .frd lines: {len(lines)}")
-                # Extract stress values (simplistic)
+                # Look for stress data lines (starting with -1?)
                 s11_frd = []
                 for line in lines:
-                    if '-1' in line and '1.' in line:  # heuristic
+                    if line.startswith(" -1"):
                         parts = line.split()
                         if len(parts) > 10:
                             try:
+                                # S11 might be at column 4 (index 3)
                                 s11 = float(parts[3])
                                 s11_frd.append(s11)
                             except:
@@ -175,6 +186,7 @@ def run_ccx(inp_content, basename="cantilever"):
                 if s11_frd:
                     max_s11 = max(s11_frd, key=abs)
                     avg_s11 = np.mean(s11_frd)
+                    print(f"  [debug] Parsed {len(s11_frd)} S11 from .frd")
                     return max_s11, avg_s11, result.stderr
             except ImportError as e:
                 print(f"  [debug] Failed to import pycalculix.results_file: {e}")

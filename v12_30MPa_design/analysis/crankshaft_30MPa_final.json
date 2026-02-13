@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-02-13T10:24:25.563119",
+  "loads": {
+    "peak_pressure_mpa": 30.0,
+    "peak_conrod_force_n": 210414.05846040187,
+    "peak_torque_nm": 3360.0,
+    "redline_rpm": 11000.0
+  },
+  "geometry": {
+    "main_journal_diameter": 76.48525443942103,
+    "main_journal_width": 26.708821551692004,
+    "pin_diameter": 61.415225011483464,
+    "pin_width": 26.52468583162826,
+    "stroke": 47.5,
+    "cheek_thickness": 17.150014574976407,
+    "cheek_radius": 82.65122005665543,
+    "cheek_hole_radius": 69.38057657744754,
+    "fillet_main": 7.088124328338445,
+    "fillet_pin": 2.2254083581989987,
+    "cheek_sector_factor": 0.33,
+    "density": 0.00785,
+    "shear_modulus": 79300.0,
+    "yield_shear": 1000.0,
+    "fatigue_limit": 500.0
+  },
+  "metrics": {
+    "shear_stress_mpa": 5.463591239918832,
+    "bending_stress_mpa": 498.63632076533423,
+    "torsional_stiffness_nm_per_rad": 1425053530030.3386,
+    "natural_frequency_hz": 600808.0192881201,
+    "mass_kg": 13.823311180366968
+  },
+  "constraints_satisfied": {
+    "shear_stress_ok": true,
+    "bending_stress_ok": true,
+    "torsional_stiffness_ok": true,
+    "mass_ok": true
+  }
+}
