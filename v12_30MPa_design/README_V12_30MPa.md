@@ -18,6 +18,7 @@ Generative‑design‑driven engine components for a 3000 whp (2237 kW) hype
 | **Intercooler core** | Aluminum plate‑fin | Water‑cooled, sidepod‑mounted, ≈8 m² total | – | `intercooler_core_placeholder.step` |
 | **Lubrication system** | – | Oil flow 6.4 L/min @ 5 bar, pump 1.25 cc/rev | – | `lubrication_system_placeholder.step` |
 | **Full V12 assembly** | – | Static assembly (pistons at TDC) | – | `v12_full_assembly_compound.step` |
+| **Full V12 assembly with plumbing** | – | Complete system with intake, exhaust, coolant, refrigerant, oil routing | – | `v12_assembly_with_plumbing_simple.step` |
 
 ## Forced‑Induction & Cooling
 
@@ -66,6 +67,8 @@ Generative‑design‑driven engine components for a 3000 whp (2237 kW) hype
 - `lubrication_system_placeholder.step`
 - `single_cylinder_assembly_v2.step`
 - `v12_full_assembly_compound.step`
+- `v12_assembly_with_plumbing_simple.step`
+- `v12_plumbing_simple.step`
 
 ### Analysis (`/analysis/`)
 - `crankshaft_30MPa_final.json` – geometry & metrics
@@ -90,6 +93,9 @@ Generative‑design‑driven engine components for a 3000 whp (2237 kW) hype
 - `lubrication_system_design.py`
 - `full_v12_assembly_compound.py`
 - `v12_design_summary.py`
+- `assembly_plumbing_simple.py`
+- `system_test_summary.py`
+- `pipe_utils_v2.py`
 
 ### Documentation (`/docs/`)
 - `ansys_setup_guide.txt`
