@@ -1,0 +1,45 @@
+{
+  "timestamp": "2026-02-13T22:28:28.181853",
+  "parameters": {
+    "bore_mm": 94.5,
+    "stroke_mm": 47.5,
+    "pin_diameter_mm": 28.0,
+    "pin_clearance_mm": 0.03,
+    "compression_height_mm": 38.0,
+    "crown_thickness_mm": 15.0,
+    "skirt_length_mm": 57.0,
+    "overall_height_mm": 95.0
+  },
+  "ring_spec_sae": {
+    "ring_groove_depth_mm": 4.295454545454546,
+    "calculation": "bore / 22 (SAE D\u2011wall)",
+    "ring_land_diameter_mm": 85.9090909090909,
+    "comp_ring_width_mm": 2.0,
+    "oil_ring_width_mm": 3.0,
+    "ring_land_spacing_mm": 10.0
+  },
+  "oil_drain": {
+    "hole_count": 8,
+    "hole_diameter_mm": 4.0,
+    "location": "behind oil ring groove"
+  },
+  "fillets_chamfers": {
+    "fillet_radius_mm": 1.0,
+    "chamfer_size_mm": 0.5,
+    "notes": "Applied to sharp edges for stress reduction and manufacturability"
+  },
+  "valve_reliefs": {
+    "intake_diameter_mm": 42.5,
+    "exhaust_diameter_mm": 35.9,
+    "depth_mm": 2.0
+  },
+  "validation_checklist_applied": [
+    "\u2705 Ring groove depth corrected to SAE D\u2011wall (bore/22)",
+    "\u2705 Oil drain holes added behind oil ring",
+    "\u2705 Chamfers specified on pin bore",
+    "\u2705 Fillets specified on stress concentrations",
+    "\u2705 Valve reliefs added for 4\u2011valve head",
+    "\u26a0\ufe0f  Draft angles not implemented (requires tapered construction)",
+    "\u26a0\ufe0f  Barrel\u2011shaped skirt not implemented (requires complex profiling)"
+  ]
+}
