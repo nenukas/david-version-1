@@ -1,0 +1,10 @@
+{
+  "liner_top_z": 211.75,
+  "liner_bottom_z": 134.25,
+  "liner_length": 77.5,
+  "deck_surface_z": 212.55,
+  "ring_travel_margins": {
+    "top": -5.0,
+    "bottom": -10.0
+  }
+}
